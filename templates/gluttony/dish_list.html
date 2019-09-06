@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+
+    <title>Ресторан</title>
+</head>
+<body>
+{#<div class="container">#}
+{#    {% regroup object_list by category as categories %}#}
+{#    {% for category in categories %}#}
+{#        <div class="row" style="padding-top: 2rem;">#}
+{#            {% for dish in category.list %}#}
+{#                <div class="col" style="padding-bottom: 2rem;">#}
+{#                    <div class="card text-center" style="width: 20rem;">#}
+{#                        {% if dish.image %}#}
+{#                            <img class="card-img-top" src="{{ dish.image.url }}" alt="{{ dish.name }}" style="margin-bottom: 1rem;">#}
+{#                        {% endif %}#}
+{#                        <div class="card-body">#}
+{#                            <h5 class="card-title">{{ dish.name }}</h5>#}
+{#                            <p class="card-text">{{ dish.price }} ₽</p>#}
+{#                        </div>#}
+{#                        <div class="card-body">#}
+{#                            <p class="card-text">Энергетическая ценность — {{ dish.energy }} ккал</p>#}
+{#                            <ul class="list-group list-group-flush">#}
+{#                                {% for allergen in dish.allergens.all %}#}
+{#                                    <li class="list-group-item">{{ allergen.name }}</li>#}
+{#                                {% empty %}#}
+{#                                    <li class="list-group-item">Аллергенов нет</li>#}
+{#                                {% endfor %}#}
+{#                            </ul>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                {% if forloop.counter|divisibleby:"3" %}#}
+{#                    <div class="w-100"></div>#}
+{#                {% endif %}#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#</div>#}
+{% regroup object_list by category as categories %}
+{{ categories }}
+{% for category in categories %}
+{#    <ul>{{ category }}#}
+{#        {% for dish in category.list %}#}
+{#            {{ dish.name }}#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{% endfor %}
+</body>
+</html>
