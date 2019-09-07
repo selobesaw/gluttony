@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Ресторан</title>
+</head>
+<body>
+{% if object_list %}
+    <h3>Содержимое заказа</h3>
+    {% for dish in object_list %}
+        <p>{{ dish.name }}</p>
+    {% endfor %}
+    <h3>Аллергены</h3>
+    {% for allergen in allergens %}
+        <p>{{ allergen.name }}</p>
+    {% empty %}
+        Нет аллергенов
+    {% endfor %}
+    <h3>Общая информация о заказе</h3>
+    <p>{{ price__sum.normalize }} ₽</p>
+    <p>{{ energy__sum }} ккал</p>
+{% else %}
+    Пустой заказ
+{% endif %}
+</body>
+</html>

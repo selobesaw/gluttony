@@ -19,10 +19,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from gluttony.views import DishLishView
+from gluttony.views import DishLishView, OrderView
 
 urlpatterns = [
-    path('', DishLishView.as_view(), name='dish_list'),
     path('admin/', admin.site.urls),
+
+    path('', DishLishView.as_view(), name='dish_list'),
+    path('order/', OrderView.as_view(), name='order'),
+
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gluttony.models import Allergen, Category, Dish
+from gluttony.models import Allergen, Dish
 
 
 class DishAdmin(admin.ModelAdmin):
@@ -9,5 +9,4 @@ class DishAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Allergen)
-admin.site.register(Category)
 admin.site.register(Dish, DishAdmin)
