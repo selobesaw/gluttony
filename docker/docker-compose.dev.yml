@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:11.5-alpine
+
+  gluttony:
+    build:
+      dockerfile: docker-compose/Dockerfile.dev
+      context: ..
+    depends_on:
+      - postgres
+    ports:
+      - '8000:8000'
