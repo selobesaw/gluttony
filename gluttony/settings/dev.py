@@ -2,6 +2,8 @@ from gluttony.settings.common import *
 
 SECRET_KEY = 'SECRET_KEY'
 
+API_TOKEN = 'API_TOKEN'
+
 DEBUG = True
 
 DATABASES = {

@@ -18,6 +18,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Вызовет падение при запуске, сделано для предотвращения невнимательной настройки
 SECRET_KEY = None
 
+API_TOKEN = None
+
 DEBUG = False
 
 ALLOWED_HOSTS = []
@@ -72,7 +74,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': ':memory:',
-    }
+    },
 }
 
 # Password validation

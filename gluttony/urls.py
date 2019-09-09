@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+from gluttony.api_views import DishListCreateAPIView
 from gluttony.views import DishLishView, OrderView
 
 urlpatterns = [
@@ -26,6 +27,8 @@ urlpatterns = [
 
     path('', DishLishView.as_view(), name='dish_list'),
     path('order/', OrderView.as_view(), name='order'),
+
+    path('api/dishes/', DishListCreateAPIView.as_view(), name='api/dish_list_create'),
 
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]

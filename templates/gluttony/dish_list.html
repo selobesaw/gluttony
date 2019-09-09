@@ -6,7 +6,7 @@
 </head>
 <body>
 {% regroup object_list by category as categories %}
-<form method="post">
+<form method="post" action="{% url 'order' %}">
     {% csrf_token %}
     <input type="submit" value="Заказать">
     {% for category in categories %}
@@ -16,7 +16,7 @@
                 <li>
                     <h4>{{ dish.name }}</h4>
                     {% if dish.image %}
-                        <img src="{{ dish.image.url }}" alt="{{ dish.name }}" width="250">
+                        <img src="{{ dish.image.url }}" alt="{{ dish.name }}" style="max-width: 250px;">
                     {% endif %}
                     <p>{{ dish.price }} ₽, {{ dish.energy }} ккал</p>
                     {% for allergen in dish.allergens.all %}
